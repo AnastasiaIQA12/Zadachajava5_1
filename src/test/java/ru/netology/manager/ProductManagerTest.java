@@ -1,5 +1,6 @@
 package ru.netology.manager;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.Book;
 import ru.netology.domain.Product;
@@ -9,7 +10,6 @@ import ru.netology.repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ProductManagerTest {
-
     @Test
     void shouldSearchNameBook() {
         ProductRepository repository=new ProductRepository();
@@ -122,4 +122,5 @@ class ProductManagerTest {
         Product[] expected = new Product[]{book4, smartphone2};
         assertArrayEquals(expected, actual);
     }
+
 }

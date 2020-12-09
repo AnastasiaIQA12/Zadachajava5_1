@@ -22,7 +22,7 @@ public class ProductManager {
     public Product[] searchBy(String text) {
         Product[] result = new Product[0];
         for (Product product: repository.findAll()) {
-            if (matches(product, text)) {
+            if (product.matches(text)) {
                 int length = result.length + 1;
                 Product[] tmp = new Product[length];
                 // копируем поэлементно все элементы из Product[]
@@ -36,25 +36,4 @@ public class ProductManager {
         return result;
     }
 
-    public boolean matches(Product product, String search) {
-        if (product instanceof Book) {
-            Book book = (Book) product;
-            if (book.getName().equalsIgnoreCase(search)) {
-                return true;
-            }
-            if (book.getAuthor().equalsIgnoreCase(search)) {
-                return true;
-            }
-        }
-        if (product instanceof Smartphone) {
-            Smartphone smartphone = (Smartphone) product;
-            if (smartphone.getName().equalsIgnoreCase(search)) {
-                return true;
-            }
-            if (smartphone.getGenerator().equalsIgnoreCase(search)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }

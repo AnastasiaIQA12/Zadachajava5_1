@@ -9,6 +9,17 @@ public class Smartphone extends Product {
     super();
   }
 
+  @Override
+  public boolean matches(String search) {
+    if (super.matches(search)){
+      return true;
+    }
+    if (this.getGenerator().equalsIgnoreCase(search)) {
+      return true;
+    }
+    return false;
+  }
+
   public Smartphone(int id, String name, int price, String generator) {
     super(id, name, price);
     this.generator = generator;

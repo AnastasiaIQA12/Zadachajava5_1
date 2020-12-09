@@ -40,4 +40,10 @@ public class Product {
     this.price = price;
   }
 
+  public boolean matches(String search) {
+      if (this.getName().equalsIgnoreCase(search)) {
+        return true;
+      }
+    return false;
+  }
 }
